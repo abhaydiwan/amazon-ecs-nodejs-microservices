@@ -1,0 +1,14 @@
+- name: Build docker image using ansible
+  hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: Tag and push to registry
+    docker_image:
+      name: abhaydiwan/api
+      repository: abhaydiwan/api
+      path: ./api
+      debug: yes
+      tag: 1.1
+      dockerfile: Dockerfile
+      push: yes
+      force: yes  
